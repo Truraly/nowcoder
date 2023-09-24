@@ -37,7 +37,7 @@ router.get('/getInfoAll', async (req, res) => {
 router.get('/getInfoMonth', async (req, res) => {
     logger.info('获取月榜')
     // 获取data下的json文件目录
-    let list: string[] = fs.readdirSync(path.join(__dirname, 'data'))
+    let list: string[] = fs.readdirSync(path.join(__dirname, '../data'))
     let listn: number[] = list.map(item => parseInt(item.split('.')[0]))
     // 筛选本月初的数据
     let now = new Date()
@@ -51,7 +51,7 @@ router.get('/getInfoMonth', async (req, res) => {
     // 获取本月第一个
     data.sort((a, b) => a - b)
     // 获取数据
-    const result = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', data[0] + '.json'), 'utf8'))
+    const result = JSON.parse(fs.readFileSync(path.join(__dirname, '../data', data[0] + '.json'), 'utf8'))
     res.send({
         status: 200,
         data: result,
@@ -63,7 +63,7 @@ router.get('/getInfoMonth', async (req, res) => {
 router.get('/getInfo72', async (req, res) => {
     logger.info('获取72小时榜')
     // 获取data下的json文件目录
-    const list = fs.readdirSync(path.join(__dirname, 'data'))
+    const list = fs.readdirSync(path.join(__dirname, '../data'))
     let listn: number[] = list.map(item => parseInt(item.split('.')[0]))
     // logger.info(list)
     // 1695478250684.json
@@ -74,7 +74,7 @@ router.get('/getInfo72', async (req, res) => {
     // 获取第一个
     data.sort((a, b) => a - b)
     // 获取数据
-    const result = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', data[0] + '.json'), 'utf8'))
+    const result = JSON.parse(fs.readFileSync(path.join(__dirname, '../data', data[0] + '.json'), 'utf8'))
     res.send({
         status: 200,
         data: result,
