@@ -77,11 +77,3 @@
 ```
 🚩 other: 其他
 ```
-
-<!-- <script setup>
-import { useData } from 'vitepress'
-
-const { theme, page, frontmatter } = useData()
-console.log(frontmatter)
-
-</script> -->
